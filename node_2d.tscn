@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://cww6urf5ajdjh" path="res://main.cs" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://c075s5d24rlsc" path="res://Player.cs" id="2_epypp"]
+[ext_resource type="Script" uid="uid://cork6k7jytwfu" path="res://CameraControls.cs" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://elnlt8ssn1ps" path="res://MainScene.cs" id="3_epypp"]
-[ext_resource type="Texture2D" uid="uid://dxouaxcbc6scm" path="res://Screenshot 2024-11-28 174135.png" id="4_0hol4"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0e48y")
@@ -13,6 +13,9 @@ script = ExtResource("1_0e48y")
 
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("2_epypp")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+script = ExtResource("3_0hol4")
 
 [node name="Shop" type="Node2D" parent="."]
 
@@ -25,8 +28,3 @@ offset_right = 4253.0
 offset_bottom = 1229.0
 color = Color(0, 0.466667, 0, 1)
 script = ExtResource("3_epypp")
-
-[node name="trash" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(655.75, -261.5)
-scale = Vector2(0.262935, 0.271296)
-texture = ExtResource("4_0hol4")
