@@ -1,6 +1,5 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-<<<<<<< HEAD
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "afvalweek", "afvalweek.csproj", "{8EC1F320-4790-4F4B-B6CD-B3DF92352A9E}"
 =======
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "afvalweek", "afvalweek.csproj", "{3DC67B96-DB97-4588-A4D2-564BDF41A1D0}"
