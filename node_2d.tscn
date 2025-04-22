@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://gx1op2a1f52h"]
+[gd_scene load_steps=5 format=3 uid="uid://gx1op2a1f52h"]
 
 [ext_resource type="Script" uid="uid://cww6urf5ajdjh" path="res://main.cs" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://c075s5d24rlsc" path="res://Player.cs" id="2_epypp"]
 [ext_resource type="Script" uid="uid://elnlt8ssn1ps" path="res://MainScene.cs" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://dxouaxcbc6scm" path="res://Screenshot 2024-11-28 174135.png" id="4_0hol4"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_0e48y")
 
-[node name="Node" type="Node" parent="."]
+[node name="Main" type="Node" parent="."]
 script = ExtResource("1_0e48y")
 
 [node name="Player" type="Node2D" parent="."]
@@ -17,9 +19,14 @@ script = ExtResource("2_epypp")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="mainScene" type="ColorRect" parent="CanvasLayer"]
-offset_left = -2800.0
-offset_top = -424.0
-offset_right = 4831.0
-offset_bottom = 1196.0
+offset_left = -3378.0
+offset_top = -391.0
+offset_right = 4253.0
+offset_bottom = 1229.0
 color = Color(0, 0.466667, 0, 1)
 script = ExtResource("3_epypp")
+
+[node name="trash" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(655.75, -261.5)
+scale = Vector2(0.262935, 0.271296)
+texture = ExtResource("4_0hol4")

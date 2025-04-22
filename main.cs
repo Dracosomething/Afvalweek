@@ -12,6 +12,7 @@ public partial class main : Node
 		// Called every time the node is added to the scene.
 		// Initialization here.
 		GD.Print("Hello from C# to Godot :)");
+		GD.Print(this);
 	}
 
 	public override void _Process(double delta)
