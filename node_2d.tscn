@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://gx1op2a1f52h"]
+[gd_scene load_steps=2 format=3 uid="uid://gx1op2a1f52h"]
 
 [ext_resource type="Script" uid="uid://cww6urf5ajdjh" path="res://main.cs" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://c075s5d24rlsc" path="res://Player.cs" id="2_epypp"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,7 +8,6 @@
 script = ExtResource("1_0e48y")
 
 [node name="Player" type="Node2D" parent="."]
-script = ExtResource("2_epypp")
 
 [node name="Shop" type="Node2D" parent="."]
 
