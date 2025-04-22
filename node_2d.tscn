@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuf6cma77pp1a"]
+[gd_scene load_steps=3 format=3 uid="uid://gx1op2a1f52h"]
 
 [ext_resource type="Script" uid="uid://cww6urf5ajdjh" path="res://main.cs" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://c075s5d24rlsc" path="res://Player.cs" id="2_epypp"]
@@ -10,3 +10,14 @@ script = ExtResource("1_0e48y")
 
 [node name="Player" type="Node2D" parent="."]
 script = ExtResource("2_epypp")
+
+[node name="Shop" type="Node2D" parent="."]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="mainScene" type="ColorRect" parent="CanvasLayer"]
+offset_left = -1767.0
+offset_top = -424.0
+offset_right = 2725.0
+offset_bottom = 1196.0
+color = Color(0, 0.466667, 0, 1)
