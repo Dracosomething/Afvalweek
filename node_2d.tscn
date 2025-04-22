@@ -15,14 +15,15 @@ script = ExtResource("1_0e48y")
 script = ExtResource("2_epypp")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-169.609, 268.143)
 script = ExtResource("3_0hol4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="mainScene" type="ColorRect" parent="CanvasLayer"]
-offset_left = -3378.0
-offset_top = -391.0
-offset_right = 4253.0
-offset_bottom = 1229.0
+offset_left = -3689.0
+offset_top = -399.0
+offset_right = 3942.0
+offset_bottom = 1221.0
 color = Color(0, 0.466667, 0, 1)
 script = ExtResource("3_epypp")
