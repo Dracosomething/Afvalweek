@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://gx1op2a1f52h"]
+[gd_scene load_steps=3 format=3 uid="uid://gx1op2a1f52h"]
 
-[ext_resource type="Script" path="res://main.cs" id="1_0e48y"]
-[ext_resource type="Script" path="res://Player.cs" id="2_epypp"]
-[ext_resource type="Script" uid="uid://cml6b0tfd4vln" path="res://Shop.cs" id="3_0hol4"]
-[ext_resource type="Script" uid="uid://cs4bu30afns7o" path="res://Store.cs" id="4_q6r6c"]
+[ext_resource type="Script" uid="uid://cww6urf5ajdjh" path="res://main.cs" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://c075s5d24rlsc" path="res://Player.cs" id="2_epypp"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -14,19 +12,12 @@ script = ExtResource("1_0e48y")
 script = ExtResource("2_epypp")
 
 [node name="Shop" type="Node2D" parent="."]
-script = ExtResource("3_0hol4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="store" type="ColorRect" parent="CanvasLayer"]
-visible = false
-offset_right = 1148.0
-offset_bottom = 646.0
-script = ExtResource("4_q6r6c")
-
-[node name="Button" type="Button" parent="CanvasLayer/store"]
-layout_mode = 0
-offset_left = 454.0
-offset_top = 120.0
-offset_right = 681.0
-offset_bottom = 217.0
+[node name="mainScene" type="ColorRect" parent="CanvasLayer"]
+offset_left = -1767.0
+offset_top = -424.0
+offset_right = 2725.0
+offset_bottom = 1196.0
+color = Color(0, 0.466667, 0, 1)
