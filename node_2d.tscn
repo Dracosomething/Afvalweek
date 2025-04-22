@@ -5,6 +5,9 @@
 [ext_resource type="Script" uid="uid://cork6k7jytwfu" path="res://CameraControls.cs" id="3_0hol4"]
 [ext_resource type="Script" uid="uid://elnlt8ssn1ps" path="res://MainScene.cs" id="3_epypp"]
 
+[gd_scene load_steps=2 format=3 uid="uid://gx1op2a1f52h"]
+
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0e48y")
 
@@ -12,7 +15,6 @@ script = ExtResource("1_0e48y")
 script = ExtResource("1_0e48y")
 
 [node name="Player" type="Node2D" parent="."]
-script = ExtResource("2_epypp")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(-169.609, 268.143)
