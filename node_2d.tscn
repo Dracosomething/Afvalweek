@@ -17,8 +17,6 @@ script = ExtResource("2_epypp")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 script = ExtResource("3_0hol4")
 
-[node name="Shop" type="Node2D" parent="."]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="mainScene" type="ColorRect" parent="CanvasLayer"]
