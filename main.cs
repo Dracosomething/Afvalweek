@@ -3,7 +3,7 @@ using System;
 
 public partial class main : Node
 {
-		// Member variables here, example:
+	// Member variables here, example:
 	private int _a = 2;
 	private string _b = "textvar";
 
