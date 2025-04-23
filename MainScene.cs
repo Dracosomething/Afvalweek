@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class MainScene : ColorRect
+public partial class MainScene : TextureRect
 {
 	public override void _Ready()
 	{
