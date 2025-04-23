@@ -12,7 +12,7 @@ public partial class main : Node
 		// Initialization here.
 		GD.Print("Hello from C# to Godot :)");
 		GD.Print();
-		generateHill(5, this);
+		generateHill(15, 15, new Vector2(400, 65), this);
 	}
 
 	public override void _Process(double delta)
@@ -21,20 +21,35 @@ public partial class main : Node
 		// Update game logic here.
 	}
 
-	public void generateHill(int itterations, Node scene) {
+	public void generateHill(int height, int lenght, Vector2 startpos, Node scene)
+	{
 		Random random = new Random();
-		for (int i = 0; i <= itterations; i++) {
-			Area2D trash = new Area2D();
-			trash.Name = "trash" + i;
-			TextureRect texture = new TextureRect();
-			Texture2D texture2D = new Texture2D();
-			int index = random.Next(0, 3);
-			texture2D.ResourcePath = locations[index];
-			texture.Texture = texture2D;
-			trash.AddChild(texture);
-			CollisionShape2D collision = new CollisionShape2D();
-			collision.Scale = trash.Scale;
-			trash.AddChild(collision);
+		Vector2 additionX = new Vector2(30, 0);
+		Vector2 additionY = new Vector2(0, 30);
+		Vector2 nextPos = startpos;
+		for (int h = 0; h <= height; h++)
+		{
+			for (int l = 0; l < lenght; l++)
+			{
+				if (random.Next(0, 100) > 45)
+				{
+					Area2D trash = new Area2D();
+					trash.Name = "trash(" + h + ", " + l + ")";
+					TextureRect texture = new TextureRect();
+					int index = random.Next(0, 3);
+					Texture2D texture1 = GD.Load<Texture2D>(locations[index]);
+					texture.Texture = texture1;
+					trash.AddChild(texture);
+					CollisionShape2D collision = new CollisionShape2D();
+					collision.Scale = trash.Scale;
+					trash.AddChild(collision);
+					trash.Position = nextPos;
+					scene.AddChild(trash);
+				}
+				nextPos += additionX;
+			}
+			startpos -= additionY;
+			nextPos = startpos;
 		}
 	}
 }
