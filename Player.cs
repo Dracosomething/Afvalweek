@@ -70,7 +70,7 @@ public partial class Player : Area2D
 		);
 
 		if (velocity.X != 0) {
-			animatedSprite2D.Animation = "walk";
+			animatedSprite2D.Animation = "up";
 			animatedSprite2D.FlipH = velocity.X > 0;
 		}
 	}
