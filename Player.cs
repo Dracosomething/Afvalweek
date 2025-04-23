@@ -21,7 +21,7 @@ public partial class Player : Area2D
 
 	public override void _Ready()
 	{
-		ScreenSize = GetParent().GetNode<ColorRect>("mainScene").Size;
+		ScreenSize = new Vector2(7631, 1620);
 		GD.Print(ScreenSize);
 		GD.Print(GetViewportRect().Size);
 	}
@@ -41,15 +41,15 @@ public partial class Player : Area2D
 			velocity.X -= 1;
 		}
 
-		if (Input.IsActionPressed("down"))
-		{
-			velocity.Y += 1;
-		}
+		// if (Input.IsActionPressed("down"))
+		// {
+		// 	velocity.Y += 1;
+		// }
 
-		if (Input.IsActionPressed("up"))
-		{
-			velocity.Y -= 1;
-		}
+		// if (Input.IsActionPressed("up"))
+		// {
+		// 	velocity.Y -= 1;
+		// }
 
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
