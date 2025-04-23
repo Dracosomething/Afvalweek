@@ -5,6 +5,8 @@ public partial class Player : Area2D
 {
 	[Export]
 	public int Speed { get; set; } = 400;
+	[Export]
+	public Camera2D camera { get; set; }
 
 	public Vector2 ScreenSize;
 
@@ -19,11 +21,14 @@ public partial class Player : Area2D
 
 	public override void _Ready()
 	{
-		ScreenSize = GetViewportRect().Size;
+		ScreenSize = new Vector2(7631, 1620);
+		GD.Print(ScreenSize);
+		GD.Print(GetViewportRect().Size);
 	}
 
 	public override void _Process(double delta)
 	{
+		this.camera.Position = this.Position;
 		var velocity = Vector2.Zero; // The player's movement vector.
 
 		if (Input.IsActionPressed("right"))
@@ -36,15 +41,15 @@ public partial class Player : Area2D
 			velocity.X -= 1;
 		}
 
-		if (Input.IsActionPressed("down"))
-		{
-			velocity.Y += 1;
-		}
+		// if (Input.IsActionPressed("down"))
+		// {
+		// 	velocity.Y += 1;
+		// }
 
-		if (Input.IsActionPressed("up"))
-		{
-			velocity.Y -= 1;
-		}
+		// if (Input.IsActionPressed("up"))
+		// {
+		// 	velocity.Y -= 1;
+		// }
 
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
@@ -63,5 +68,10 @@ public partial class Player : Area2D
 		x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
 		y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
 		);
+
+		if (velocity.X != 0) {
+			animatedSprite2D.Animation = "walk";
+			animatedSprite2D.FlipH = velocity.X > 0;
+		}
 	}
 }
