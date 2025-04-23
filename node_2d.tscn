@@ -1,38 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://gx1op2a1f52h"]
+[gd_scene load_steps=4 format=3 uid="uid://gx1op2a1f52h"]
 
 [ext_resource type="Script" uid="uid://cww6urf5ajdjh" path="res://main.cs" id="1_0e48y"]
-[ext_resource type="PackedScene" uid="uid://dkttmflrndfo4" path="res://player.tscn" id="2_0hol4"]
-[ext_resource type="Texture2D" uid="uid://ceqx6e28v0n5w" path="res://art/Themaweek_Character_Sprite2.png" id="3_0hol4"]
-[ext_resource type="Texture2D" uid="uid://dnhscbmkneh8v" path="res://art/Themaweek_Character_Sprite1.png" id="4_kdubu"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_d21ai"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_kdubu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_0hol4")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("4_kdubu")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_0hol4")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 5.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rj586"]
-radius = 27.0
-height = 68.0
+[ext_resource type="Script" uid="uid://elnlt8ssn1ps" path="res://MainScene.cs" id="3_epypp"]
+[ext_resource type="PackedScene" uid="uid://dkttmflrndfo4" path="res://player.tscn" id="3_q6r6c"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0e48y")
@@ -55,24 +25,38 @@ camera = NodePath("../Camera2D")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(3, 8)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = 906.0
+offset_top = -89.0
+offset_right = 946.0
+offset_bottom = -49.0
 
-[node name="mainScene" type="ColorRect" parent="CanvasLayer"]
-offset_left = -1767.0
-offset_top = -424.0
-offset_right = 2725.0
-offset_bottom = 1196.0
-color = Color(0, 0.466667, 0, 1)
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 1370.0
+offset_top = -15.0
+offset_right = 1410.0
+offset_bottom = 25.0
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 3
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 442.0
+offset_top = -163.0
+offset_right = 482.0
+offset_bottom = -123.0
 
-[node name="Player" parent="CanvasLayer2" instance=ExtResource("2_0hol4")]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -464.0
+offset_top = -74.0
+offset_right = -424.0
+offset_bottom = -34.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer2/Player"]
-sprite_frames = SubResource("SpriteFrames_d21ai")
-animation = &"walk"
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 255.0
+offset_top = 792.0
+offset_right = 295.0
+offset_bottom = 832.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer2/Player"]
-shape = SubResource("CapsuleShape2D_rj586")
+[node name="ColorRect6" type="ColorRect" parent="."]
+offset_left = 8737.0
+offset_top = -15.0
+offset_right = 10061.0
+offset_bottom = 253.0
