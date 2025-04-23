@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://gx1op2a1f52h"]
+[gd_scene load_steps=5 format=3 uid="uid://gx1op2a1f52h"]
 
 [ext_resource type="Script" uid="uid://cww6urf5ajdjh" path="res://main.cs" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://elnlt8ssn1ps" path="res://MainScene.cs" id="3_epypp"]
 [ext_resource type="PackedScene" uid="uid://dkttmflrndfo4" path="res://player.tscn" id="3_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://bhfc4wfdh4kdc" path="res://art/Modular_Afval_1.png" id="4_0hol4"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_0e48y")
@@ -60,3 +61,25 @@ offset_left = 8737.0
 offset_top = -15.0
 offset_right = 10061.0
 offset_bottom = 253.0
+
+[node name="trash" type="Area2D" parent="."]
+position = Vector2(23, 12)
+
+[node name="TextureRect" type="TextureRect" parent="trash"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_0hol4")
+
+[node name="TextureRect2" type="TextureRect" parent="trash"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_0hol4")
