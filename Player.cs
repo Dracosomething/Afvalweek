@@ -68,5 +68,10 @@ public partial class Player : Area2D
 		x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
 		y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
 		);
+
+		if (velocity.X != 0) {
+			animatedSprite2D.Animation = "walk";
+			animatedSprite2D.FlipH = velocity.X > 0;
+		}
 	}
 }
