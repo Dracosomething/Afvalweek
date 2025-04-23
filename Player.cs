@@ -5,6 +5,8 @@ public partial class Player : Area2D
 {
 	[Export]
 	public int Speed { get; set; } = 400;
+	[Export]
+	public Camera2D camera { get; set; }
 
 	public Vector2 ScreenSize;
 
@@ -19,11 +21,14 @@ public partial class Player : Area2D
 
 	public override void _Ready()
 	{
-		ScreenSize = GetViewportRect().Size;
+		ScreenSize = GetParent().GetNode<ColorRect>("mainScene").Size;
+		GD.Print(ScreenSize);
+		GD.Print(GetViewportRect().Size);
 	}
 
 	public override void _Process(double delta)
 	{
+		this.camera.Position = this.Position;
 		var velocity = Vector2.Zero; // The player's movement vector.
 
 		if (Input.IsActionPressed("right"))
