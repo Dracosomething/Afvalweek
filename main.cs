@@ -3,7 +3,7 @@ using System;
 
 public partial class main : Node
 {
-		// Member variables here, example:
+	// Member variables here, example:
 	private int _a = 2;
 	private string _b = "textvar";
 
@@ -12,6 +12,7 @@ public partial class main : Node
 		// Called every time the node is added to the scene.
 		// Initialization here.
 		GD.Print("Hello from C# to Godot :)");
+		GD.Print();
 	}
 
 	public override void _Process(double delta)
