@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Runtime.CompilerServices;
 
 public partial class Player : Area2D
 {
@@ -101,6 +102,14 @@ public partial class Player : Area2D
 					}
 				}
 			}
+		}
+	}
+
+	private void breakTrash()
+	{
+		if (this.GetOverlappingAreas().Count > 0)
+		{
+			GD.Print("eeeeeee");
 		}
 	}
 }
