@@ -8,6 +8,8 @@ public partial class Player : Area2D
 	public int Speed { get; set; } = 400;
 	[Export]
 	public Camera2D camera { get; set; }
+	[Export]
+	public Label score { get; set; }
 
 	public Vector2 ScreenSize;
 	private Vector2 mousePos;
@@ -20,18 +22,43 @@ public partial class Player : Area2D
 	}
 
 	private Inventory bag;
+	double GroundPos = 240.5;
 
 	public override void _Ready()
 	{
-		ScreenSize = new Vector2(3350, 500);
-		GD.Print(ScreenSize);
-		GD.Print(GetViewportRect().Size);
+		ScreenSize = new Vector2(3350, 1000);
+		bag = new Inventory(1000);
+		score.Text = "trash collected: 0/" + bag._capasity;
+		score.SetAnchorsPreset(Control.LayoutPreset.TopLeft);
 	}
 
 	public override void _Process(double delta)
 	{
 		movement(delta);
 		_break();
+		if (!Input.IsActionPressed("up"))
+		{
+			Vector2 velocity = new Vector2(0, 210);
+			this.Position += velocity * (float)delta;
+			if (Position.Y <= GroundPos)
+			{
+				Position = new Vector2(
+					x: Position.X,
+					y: Mathf.Clamp(Position.Y, -732, 209)
+				);
+			}
+			else
+			{
+				velocity = Vector2.Zero;
+				velocity.Y += (float)(10000 * delta);
+				float y = Position.Y;
+				y += (float)(velocity.Y * delta);
+				Position = new Vector2(
+					x: Position.X,
+					y: y
+				);
+			}
+		}
 	}
 
 	private void movement(double delta)
@@ -49,15 +76,10 @@ public partial class Player : Area2D
 			velocity.X -= 1;
 		}
 
-		// if (Input.IsActionPressed("down"))
-		// {
-		// 	velocity.Y += 1;
-		// }
-
-		// if (Input.IsActionPressed("up"))
-		// {
-		// 	velocity.Y -= 1;
-		// }
+		if (Input.IsActionPressed("up"))
+		{
+			velocity.Y -= 1;
+		}
 
 		var animatedSprite2D = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 
@@ -73,8 +95,8 @@ public partial class Player : Area2D
 
 		Position += velocity * (float)delta;
 		Position = new Vector2(
-		x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
-		y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
+			x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
+			y: Mathf.Clamp(Position.Y, -732, ScreenSize.Y)
 		);
 
 		if (velocity.X != 0)
@@ -82,8 +104,6 @@ public partial class Player : Area2D
 			animatedSprite2D.Animation = "walk";
 			animatedSprite2D.FlipH = velocity.X > 0;
 		}
-
-		// GD.Print(this.GetOver());
 	}
 
 	private void _break()
@@ -92,24 +112,18 @@ public partial class Player : Area2D
 		{
 			if (Input.IsActionPressed("click"))
 			{
-				GD.Print(this.GetParent().Name);
 				foreach (Area2D trash in GetOverlappingAreas())
 				{
 					if (trash != this)
 					{
 						trash.QueueFree();
-						break;
+						if (bag.addTrash())
+						{
+							score.Text = $"trash collected: {bag._contents}/{bag._capasity}";
+						}
 					}
 				}
 			}
-		}
-	}
-
-	private void breakTrash()
-	{
-		if (this.GetOverlappingAreas().Count > 0)
-		{
-			GD.Print("eeeeeee");
 		}
 	}
 }

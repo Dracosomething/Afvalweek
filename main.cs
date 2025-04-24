@@ -8,17 +8,7 @@ public partial class main : Node
 
 	public override void _Ready()
 	{
-		// Called every time the node is added to the scene.
-		// Initialization here.
-		GD.Print("Hello from C# to Godot :)");
-		GD.Print();
-		generateHill(15, 100, new Vector2(400, 209), this);
-	}
-
-	public override void _Process(double delta)
-	{
-		// Called every frame. Delta is time since the last frame.
-		// Update game logic here.
+		generateHill(30, 100, new Vector2(400, 209), this);
 	}
 
 	public void generateHill(int height, int lenght, Vector2 startpos, Node scene)
@@ -46,11 +36,10 @@ public partial class main : Node
 					collision.Name = "coll";
 					trash.AddChild(collision);
 					trash.Position = nextPos;
-					collision.Scale = new Vector2(3, 3);
+					collision.Scale = new Vector2((float)3, (float)3);
 					RectangleShape2D shape = new RectangleShape2D();
 					shape.Size = new Vector2(3, 3);
 					collision.Shape = shape;
-					// trash.Scale = new Vector2(3, 3);
 					scene.AddChild(trash);
 					list.Add(trash);
 				}
@@ -62,7 +51,8 @@ public partial class main : Node
 		list.ForEach(trash =>
 		{
 			Script script = ResourceLoader.Load<Script>("res://Trash.cs");
-			trash.SetScript(script);
+			Script attached = script;
+			trash.SetScript(attached);
 		});
 	}
 }
