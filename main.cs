@@ -47,6 +47,9 @@ public partial class main : Node
 					trash.AddChild(collision);
 					trash.Position = nextPos;
 					collision.Scale = new Vector2(3, 3);
+					RectangleShape2D shape = new RectangleShape2D();
+					shape.Size = new Vector2(3, 3);
+					collision.Shape = shape;
 					// trash.Scale = new Vector2(3, 3);
 					scene.AddChild(trash);
 					list.Add(trash);

@@ -30,6 +30,7 @@ public partial class Player : Area2D
 	public override void _Process(double delta)
 	{
 		movement(delta);
+		_break();
 	}
 
 	private void movement(double delta)
@@ -79,6 +80,19 @@ public partial class Player : Area2D
 		{
 			animatedSprite2D.Animation = "walk";
 			animatedSprite2D.FlipH = velocity.X > 0;
+		}
+
+		// GD.Print(this.GetOver());
+	}
+
+	private void _break()
+	{
+		if (this.GetOverlappingAreas().Count > 0)
+		{
+			if (Input.IsActionPressed("click"))
+			{
+				GD.Print("eeeee");
+			}
 		}
 	}
 
