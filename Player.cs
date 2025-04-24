@@ -9,6 +9,7 @@ public partial class Player : Area2D
 	public Camera2D camera { get; set; }
 
 	public Vector2 ScreenSize;
+	private Vector2 mousePos;
 
 	enum ShovelType
 	{
@@ -21,7 +22,7 @@ public partial class Player : Area2D
 
 	public override void _Ready()
 	{
-		ScreenSize = new Vector2(7631, 1620);
+		ScreenSize = new Vector2(3350, 500);
 		GD.Print(ScreenSize);
 		GD.Print(GetViewportRect().Size);
 	}
@@ -90,7 +91,15 @@ public partial class Player : Area2D
 		{
 			if (Input.IsActionPressed("click"))
 			{
-				GD.Print("eeeee");
+				GD.Print(this.GetParent().Name);
+				foreach (Area2D trash in GetOverlappingAreas())
+				{
+					if (trash != this)
+					{
+						trash.QueueFree();
+						break;
+					}
+				}
 			}
 		}
 	}
