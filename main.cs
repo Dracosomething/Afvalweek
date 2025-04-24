@@ -12,7 +12,7 @@ public partial class main : Node
 		// Initialization here.
 		GD.Print("Hello from C# to Godot :)");
 		GD.Print();
-		generateHill(15, 15, new Vector2(400, 65), this);
+		generateHill(15, 15, new Vector2(400, 209), this);
 	}
 
 	public override void _Process(double delta)
@@ -47,6 +47,9 @@ public partial class main : Node
 					trash.AddChild(collision);
 					trash.Position = nextPos;
 					collision.Scale = new Vector2(3, 3);
+					RectangleShape2D shape = new RectangleShape2D();
+					shape.Size = new Vector2(3, 3);
+					collision.Shape = shape;
 					// trash.Scale = new Vector2(3, 3);
 					scene.AddChild(trash);
 					list.Add(trash);

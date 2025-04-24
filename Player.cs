@@ -28,6 +28,12 @@ public partial class Player : Area2D
 
 	public override void _Process(double delta)
 	{
+		movement(delta);
+		_break();
+	}
+
+	private void movement(double delta)
+	{
 		this.camera.Position = this.Position;
 		var velocity = Vector2.Zero; // The player's movement vector.
 
@@ -62,16 +68,30 @@ public partial class Player : Area2D
 		{
 			animatedSprite2D.Stop();
 		}
-		
+
 		Position += velocity * (float)delta;
 		Position = new Vector2(
 		x: Mathf.Clamp(Position.X, 0, ScreenSize.X),
 		y: Mathf.Clamp(Position.Y, 0, ScreenSize.Y)
 		);
 
-		if (velocity.X != 0) {
+		if (velocity.X != 0)
+		{
 			animatedSprite2D.Animation = "walk";
 			animatedSprite2D.FlipH = velocity.X > 0;
+		}
+
+		// GD.Print(this.GetOver());
+	}
+
+	private void _break()
+	{
+		if (this.GetOverlappingAreas().Count > 0)
+		{
+			if (Input.IsActionPressed("click"))
+			{
+				GD.Print("eeeee");
+			}
 		}
 	}
 }
