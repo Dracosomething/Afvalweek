@@ -32,7 +32,7 @@ public partial class main : Node
 		{
 			for (int l = 0; l < lenght; l++)
 			{
-				if (random.Next(0, 100) > 45)
+				if (random.Next(0, 100) > 65)
 				{
 					Area2D trash = new Area2D();
 					trash.Name = "trash(" + h + ", " + l + ")";
